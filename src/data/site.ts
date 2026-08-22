@@ -1,6 +1,6 @@
 // VALIDACIÓN DEL CLIENTE REQUERIDA antes de publicar información comercial.
 export const site={
-  name:"TORQ Texcoco",shortName:"TORQ.",tagline:"Taller automotriz",canonical:"https://tallermecanico.vercel.app",
+  name:"TORQ Texcoco",shortName:"TORQ.",tagline:"Taller automotriz",canonical:"https://tallermecanico-tawny.vercel.app",
   phone:"",phoneDisplay:"Teléfono por confirmar",whatsapp:"",email:"",address:"Ubicación exacta por confirmar",hours:"Horario por confirmar",mapsUrl:"",
   social:{facebook:"",instagram:""},
   coverage:["Texcoco","CDMX zona oriente","Nezahualcóyotl","Chimalhuacán","Ecatepec","Chicoloapan","Los Reyes","Ixtapaluca"],
