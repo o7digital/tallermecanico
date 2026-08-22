@@ -241,11 +241,11 @@ textarea:focus-visible {
   background:
     linear-gradient(
       90deg,
-      rgba(7, 8, 10, 0.98),
-      rgba(7, 8, 10, 0.87) 38%,
-      rgba(7, 8, 10, 0.18) 72%
+      rgba(7, 8, 10, 0.78),
+      rgba(7, 8, 10, 0.48) 42%,
+      rgba(7, 8, 10, 0.08) 76%
     ),
-    linear-gradient(0deg, #0b0c0e, transparent 38%);
+    linear-gradient(0deg, rgba(11, 12, 14, 0.64), transparent 34%);
   content: "";
 }
 .hero-slides {
@@ -261,7 +261,7 @@ textarea:focus-visible {
   object-fit: cover;
   object-position: 65% center;
   opacity: 0;
-  filter: saturate(0.82) contrast(1.08);
+  filter: saturate(0.96) contrast(1.03);
   transform: scale(1.025);
   transition:
     opacity 1s ease,
@@ -1082,9 +1082,9 @@ textarea:focus-visible {
   .hero:after {
     background: linear-gradient(
       180deg,
-      rgba(7, 8, 10, 0.96),
-      rgba(7, 8, 10, 0.83) 63%,
-      rgba(7, 8, 10, 0.55)
+      rgba(7, 8, 10, 0.76),
+      rgba(7, 8, 10, 0.58) 63%,
+      rgba(7, 8, 10, 0.34)
     );
   }
   .hero-bg {
