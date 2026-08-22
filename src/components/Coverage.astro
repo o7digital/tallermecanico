@@ -1,0 +1,4 @@
+---
+import{site}from"@/data/site";import Icon from"./Icon.astro";
+---
+<section class="section coverage" id="cobertura"><div class="container coverage-grid"><div class="map-card reveal" role="img" aria-label="Zona de cobertura desde Texcoco"><span class="ring one"></span><span class="ring two"></span><div class="map-pin"><Icon name="car"/></div><span class="label l1">Texcoco · Base</span><span class="label l2">CDMX</span><span class="label l3">Municipios cercanos</span></div><div class="coverage-copy reveal"><p class="eyebrow">Estamos cerca de ti</p><h2>Desde Texcoco, llegamos más lejos.</h2><p>Recibimos vehículos de la zona oriente y ofrecemos asistencia móvil en servicios y ubicaciones seleccionadas.</p><div class="zones">{site.coverage.map(z=><span>{z}</span>)}</div><a class="btn btn-orange" href="#contacto">Consultar cobertura</a></div></div></section>

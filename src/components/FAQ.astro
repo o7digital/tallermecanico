@@ -1,0 +1,4 @@
+---
+import{site}from"@/data/site";import Icon from"./Icon.astro";
+---
+<section class="section faq"><div class="container faq-grid"><div class="reveal"><p class="eyebrow">Preguntas frecuentes</p><h2>Antes de traer tu auto.</h2></div><div class="faq-list reveal">{site.faq.map((f,i)=><div class="faq-item"><h3><button aria-expanded={i===0?"true":"false"} aria-controls={`answer-${i}`} data-faq><span>{f.q}</span><Icon name="down"/></button></h3><div id={`answer-${i}`} class:list={["faq-answer",{open:i===0}]}><p>{f.a}</p></div></div>)}</div></div></section>

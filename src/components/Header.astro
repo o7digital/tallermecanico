@@ -1,0 +1,4 @@
+---
+import{site}from"@/data/site";import Icon from"./Icon.astro";
+---
+<div class="topbar"><div class="container"><span><Icon name="clock" size={15}/>{site.hours}</span><span><Icon name="pin" size={15}/>Texcoco · CDMX zona oriente · Municipios cercanos</span></div></div><header class="header"><div class="container nav"><a class="brand" href="#inicio"><span class="brand-mark">T</span><span><strong>{site.shortName}</strong><small>{site.tagline}</small></span></a><nav id="nav" data-nav><a href="#servicios">Servicios</a><a href="#diagnostico">Diagnóstico</a><a href="#proceso">Proceso</a><a href="#cobertura">Cobertura</a><a href="#contacto">Contacto</a></nav><div class="nav-actions"><button class="menu-btn" aria-controls="nav" aria-expanded="false" aria-label="Abrir menú" data-menu><Icon name="menu"/></button><a class="btn btn-orange" href="#contacto">Agendar revisión</a></div></div></header>

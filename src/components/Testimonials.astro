@@ -1,0 +1,4 @@
+---
+import{site}from"@/data/site";
+---
+<section class="section testimonials" id="opiniones"><div class="container"><div class="section-head reveal"><div><p class="eyebrow">Confianza sobre ruedas</p><h2>Clientes que regresan.</h2></div><p class="sample-badge">Contenido demostrativo · Validación pendiente</p></div><div class="quotes">{site.testimonials.map((t,i)=><article class="reveal"><span class="quote-mark">“</span><p>{t.quote}</p><footer><i>{String(i+1).padStart(2,"0")}</i><strong>{t.author}</strong></footer></article>)}</div></div></section>
