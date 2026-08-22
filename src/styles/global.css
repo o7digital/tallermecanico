@@ -3,8 +3,8 @@
   --ink2: #15171a;
   --steel: #25282d;
   --paper: #f3f1eb;
-  --orange: #ff5a1f;
-  --orange2: #ff7a32;
+  --orange: #ff7a00;
+  --orange2: #ff9418;
   --white: #fff;
   --muted: #a7aaae;
   --line: rgba(255, 255, 255, 0.12);
@@ -108,7 +108,7 @@ h2 {
 }
 .btn-orange {
   background: var(--orange);
-  box-shadow: 0 12px 35px rgba(255, 90, 31, 0.25);
+  box-shadow: 0 12px 35px rgba(255, 122, 0, 0.25);
 }
 .btn-orange:hover {
   background: var(--orange2);
@@ -378,7 +378,7 @@ textarea:focus-visible {
   display: grid;
   place-items: center;
   border-radius: 50%;
-  background: rgba(255, 90, 31, 0.15);
+  background: rgba(255, 122, 0, 0.15);
   color: var(--orange);
   font-style: normal;
 }
@@ -659,7 +659,7 @@ textarea:focus-visible {
   height: 42px;
   display: grid;
   place-items: center;
-  border: 1px solid rgba(255, 90, 31, 0.4);
+  border: 1px solid rgba(255, 122, 0, 0.4);
   border-radius: 50%;
   color: var(--orange);
   font-style: normal;
@@ -724,7 +724,7 @@ textarea:focus-visible {
 }
 .ring {
   position: absolute;
-  border: 1px solid rgba(255, 90, 31, 0.36);
+  border: 1px solid rgba(255, 122, 0, 0.36);
   border-radius: 50%;
 }
 .ring.one {
@@ -751,7 +751,7 @@ textarea:focus-visible {
   border-radius: 50%;
   background: var(--orange);
   transform: translate(-50%, -50%);
-  box-shadow: 0 15px 40px rgba(255, 90, 31, 0.4);
+  box-shadow: 0 15px 40px rgba(255, 122, 0, 0.4);
 }
 .label {
   position: absolute;
@@ -909,7 +909,7 @@ textarea:focus-visible {
 .form-grid select:focus,
 .form-grid textarea:focus {
   border-color: var(--orange);
-  box-shadow: 0 0 0 4px rgba(255, 90, 31, 0.1);
+  box-shadow: 0 0 0 4px rgba(255, 122, 0, 0.1);
 }
 .form-grid .full {
   grid-column: 1/-1;
