@@ -14,7 +14,7 @@ const slides = [
 <section class="hero" id="inicio" data-hero-slider aria-roledescription="carrusel" aria-label="Taller TORQ Texcoco">
   <div class="hero-slides">
     {slides.map((slide, index) => (
-      <img class:list={["hero-bg", { active: index === 0, "hero-bg--orange": index === 1 }]} src={slide.src} alt={slide.alt} width="2000" height="1333" loading={index === 0 ? "eager" : "lazy"} fetchpriority={index === 0 ? "high" : "auto"} decoding="async" data-slide aria-hidden={index !== 0 ? "true" : "false"} />
+      <img class:list={["hero-bg", { active: index === 0, "hero-bg--bright": index === 1 || index === 2, "hero-bg--orange": index === 1 }]} src={slide.src} alt={slide.alt} width="2000" height="1333" loading={index === 0 ? "eager" : "lazy"} fetchpriority={index === 0 ? "high" : "auto"} decoding="async" data-slide aria-hidden={index !== 0 ? "true" : "false"} />
     ))}
   </div>
   <div class="container hero-grid">
