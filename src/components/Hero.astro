@@ -1,4 +1,72 @@
 ---
-import{Image}from"astro:assets";import hero from"@/assets/taller-hero.webp";import{site,whatsappUrl}from"@/data/site";import Icon from"./Icon.astro";const wa=whatsappUrl("Hola TORQ, necesito un diagnóstico para mi vehículo.");
+import { site, whatsappUrl } from "@/data/site";
+import Icon from "./Icon.astro";
+
+const wa = whatsappUrl("Hola TORQ, necesito un diagnóstico para mi vehículo.");
+const slides = [
+  { src: "/alex-suprun-AHnhdjyTNGM-unsplash.webp", alt: "Mecánico revisando un automóvil en un taller profesional" },
+  { src: "/angry-_-kat-4ORysIjH-mY-unsplash.webp", alt: "Detalle de un automóvil dentro de un taller mecánico" },
+  { src: "/connor-botts-wacb2ChxA4k-unsplash.webp", alt: "Área de servicio de un taller automotriz moderno" },
+  { src: "/mehmet-talha-onuk-8t6tk7LYLrE-unsplash.webp", alt: "Automóvil atendido por especialistas en mecánica" },
+];
 ---
-<section class="hero" id="inicio"><Image class="hero-bg" src={hero} alt="Mecánico trabajando en un automóvil dentro de un taller profesional" width={1900} height={1267} loading="eager" fetchpriority="high"/><div class="container hero-grid"><div class="hero-copy reveal"><p class="eyebrow">Taller automotriz · Texcoco</p><h1>Tu auto.<em>En buenas manos.</em></h1><p>Diagnóstico claro, reparación profesional y atención directa para vehículos en Texcoco, municipios cercanos y CDMX zona oriente.</p><div class="hero-actions"><a class="btn btn-orange" href="#contacto"><Icon name="scan"/>Solicitar diagnóstico</a>{site.phone?<a class="btn btn-outline" href={`tel:${site.phone}`}><Icon name="phone"/>Llamar ahora</a>:<a class="btn btn-outline" href="#contacto"><Icon name="phone"/>Teléfono por confirmar</a>}</div><div class="hero-proof"><span><i>✓</i>Presupuesto antes de reparar</span><span><i>✓</i>Diagnóstico con evidencia</span><span><i>✓</i>Atención sujeta a confirmación</span></div></div><aside class="hero-card reveal"><div class="status"><span></span>Agenda disponible · por confirmar</div><h2>¿Se encendió un testigo?</h2><p>Cuéntanos qué presenta tu auto. Preparamos la información para coordinar una revisión.</p><a class="quick orange" href={wa??"#contacto"}><Icon name="message"/>Cotizar por WhatsApp</a>{!site.whatsapp&&<small>WhatsApp se activará al confirmar el número.</small>}</aside></div></section><div class="ticker" aria-hidden="true"><div>{["Afinación","Frenos","Suspensión","Diagnóstico por escáner","Sistema eléctrico","Servicio móvil","Afinación","Frenos","Suspensión","Diagnóstico por escáner","Sistema eléctrico","Servicio móvil"].map(x=><span>{x}</span>)}</div></div>
+
+<section class="hero" id="inicio" data-hero-slider aria-roledescription="carrusel" aria-label="Taller TORQ Texcoco">
+  <div class="hero-slides">
+    {slides.map((slide, index) => (
+      <img class:list={["hero-bg", { active: index === 0 }]} src={slide.src} alt={slide.alt} width="2000" height="1333" loading={index === 0 ? "eager" : "lazy"} fetchpriority={index === 0 ? "high" : "auto"} decoding="async" data-slide aria-hidden={index !== 0 ? "true" : "false"} />
+    ))}
+  </div>
+  <div class="container hero-grid">
+    <div class="hero-copy reveal">
+      <p class="eyebrow">Taller automotriz · Texcoco</p>
+      <h1>Tu auto.<em>En buenas manos.</em></h1>
+      <p>Diagnóstico claro, reparación profesional y atención directa para vehículos en Texcoco, municipios cercanos y CDMX zona oriente.</p>
+      <div class="hero-actions">
+        <a class="btn btn-orange" href="#contacto"><Icon name="scan" />Solicitar diagnóstico</a>
+        {site.phone ? <a class="btn btn-outline" href={`tel:${site.phone}`}><Icon name="phone" />Llamar ahora</a> : <a class="btn btn-outline" href="#contacto"><Icon name="phone" />Teléfono por confirmar</a>}
+      </div>
+      <div class="hero-proof"><span><i>✓</i>Presupuesto antes de reparar</span><span><i>✓</i>Diagnóstico con evidencia</span><span><i>✓</i>Atención sujeta a confirmación</span></div>
+    </div>
+    <aside class="hero-card reveal">
+      <div class="status"><span></span>Agenda disponible · por confirmar</div>
+      <h2>¿Se encendió un testigo?</h2>
+      <p>Cuéntanos qué presenta tu auto. Preparamos la información para coordinar una revisión.</p>
+      <a class="quick orange" href={wa ?? "#contacto"}><Icon name="message" />Cotizar por WhatsApp</a>
+      {!site.whatsapp && <small>WhatsApp se activará al confirmar el número.</small>}
+    </aside>
+  </div>
+  <div class="slider-controls" aria-label="Controles del carrusel">
+    <button class="slider-arrow" type="button" data-slider-prev aria-label="Foto anterior">‹</button>
+    <div class="slider-dots">{slides.map((_, index) => <button type="button" class:list={{ active: index === 0 }} data-slider-dot={index} aria-label={`Mostrar foto ${index + 1}`} aria-current={index === 0 ? "true" : "false"}></button>)}</div>
+    <button class="slider-arrow" type="button" data-slider-next aria-label="Foto siguiente">›</button>
+  </div>
+</section>
+<div class="ticker" aria-hidden="true"><div>{["Afinación", "Frenos", "Suspensión", "Diagnóstico por escáner", "Sistema eléctrico", "Servicio móvil", "Afinación", "Frenos", "Suspensión", "Diagnóstico por escáner", "Sistema eléctrico", "Servicio móvil"].map(x => <span>{x}</span>)}</div></div>
+
+<script>
+  const slider = document.querySelector<HTMLElement>("[data-hero-slider]");
+  if (slider) {
+    const slides = [...slider.querySelectorAll<HTMLElement>("[data-slide]")];
+    const dots = [...slider.querySelectorAll<HTMLButtonElement>("[data-slider-dot]")];
+    let current = 0;
+    let timer: number | undefined;
+    const reducedMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const show = (next: number) => {
+      current = (next + slides.length) % slides.length;
+      slides.forEach((slide, index) => { const active = index === current; slide.classList.toggle("active", active); slide.setAttribute("aria-hidden", String(!active)); });
+      dots.forEach((dot, index) => { const active = index === current; dot.classList.toggle("active", active); dot.setAttribute("aria-current", String(active)); });
+    };
+    const stop = () => window.clearInterval(timer);
+    const play = () => { stop(); if (!reducedMotion) timer = window.setInterval(() => show(current + 1), 5500); };
+    slider.querySelector("[data-slider-prev]")?.addEventListener("click", () => { show(current - 1); play(); });
+    slider.querySelector("[data-slider-next]")?.addEventListener("click", () => { show(current + 1); play(); });
+    dots.forEach((dot, index) => dot.addEventListener("click", () => { show(index); play(); }));
+    slider.addEventListener("mouseenter", stop);
+    slider.addEventListener("mouseleave", play);
+    slider.addEventListener("focusin", stop);
+    slider.addEventListener("focusout", play);
+    document.addEventListener("visibilitychange", () => document.hidden ? stop() : play());
+    play();
+  }
+</script>

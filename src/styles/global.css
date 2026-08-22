@@ -248,15 +248,69 @@ textarea:focus-visible {
     linear-gradient(0deg, #0b0c0e, transparent 38%);
   content: "";
 }
-.hero-bg {
+.hero-slides {
   position: absolute;
   z-index: -2;
+  inset: 0;
+}
+.hero-bg {
+  position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: 65% center;
+  opacity: 0;
   filter: saturate(0.82) contrast(1.08);
+  transform: scale(1.025);
+  transition:
+    opacity 1s ease,
+    transform 7s ease;
+}
+.hero-bg.active {
+  opacity: 1;
+  transform: scale(1);
+}
+.slider-controls {
+  position: absolute;
+  z-index: 5;
+  right: max(20px, calc((100vw - 1180px) / 2));
+  bottom: 34px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.slider-arrow,
+.slider-dots button {
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  background: rgba(11, 12, 14, 0.58);
+  color: #fff;
+  backdrop-filter: blur(10px);
+}
+.slider-arrow {
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  font-size: 1.55rem;
+  line-height: 1;
+}
+.slider-dots {
+  display: flex;
+  gap: 7px;
+}
+.slider-dots button {
+  width: 9px;
+  height: 9px;
+  padding: 0;
+  border-radius: 9px;
+  transition: 0.25s;
+}
+.slider-dots button.active {
+  width: 26px;
+  border-color: var(--orange);
+  background: var(--orange);
 }
 .hero-grid {
   min-height: 780px;
@@ -1052,6 +1106,14 @@ textarea:focus-visible {
   }
   .hero-proof {
     gap: 10px;
+  }
+  .slider-controls {
+    right: 14px;
+    bottom: 23px;
+  }
+  .slider-arrow {
+    width: 36px;
+    height: 36px;
   }
   .section-head {
     display: block;
